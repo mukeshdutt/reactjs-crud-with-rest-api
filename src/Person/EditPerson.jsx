@@ -7,7 +7,6 @@ class EditPerson extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
-    this.Name = "Mukesh"
   }
 
   handleSubmit(e) {
@@ -27,55 +26,54 @@ class EditPerson extends React.Component {
           <div className="row">
             <div className="offset-md-2 col-md-6">
               <form>
-                <h1>{this.Name}</h1>
-                <div class="form-group mt-3">
-                  <label for="name">Name</label>
+                <div className="form-group mt-3">
+                  <label htmlFor="name">Name</label>
                   <input type="text" name="name" className="form-control" />
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <label>Mobile</label>
                   <input type="text" name="mobile" className="form-control" />
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <label>Email</label>
                   <input type="text" name="email" className="form-control" />
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <label className="pe-3">Gender</label>
-                  {config.genders.map((gender) => {
+                  {config.genders.map((gender, index) => {
                     return (
-                      <div class="form-check-inline">
+                      <div className="form-check-inline" key={index}>
                         <input type="radio" className="form-check-input" />
                         <label className="form-check-label">{gender}</label>
                       </div>
                     );
                   })}
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <label>Address</label>
                   <textarea className="form-control"></textarea>
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <label className="pe-3">Hobbies</label>
 
-                  {config.hobbies.map((hobby) => {
+                  {config.hobbies.map((hobby, index) => {
                     return (
-                      <div className="form-check-inline">
+                      <div className="form-check-inline" key={index}>
                         <input type="checkbox" className="form-check-input" />
                         <label className="form-check-label">{hobby}</label>
                       </div>
                     );
                   })}
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <label>State</label>
                   <select name="state" className="form-control">
-                    {config.states.map((state) => {
-                      return <option>{state}</option>;
+                    {config.states.map((state, index) => {
+                      return <option key={index}>{state}</option>;
                     })}
                   </select>
                 </div>
-                <div class="form-group mt-3">
+                <div className="form-group mt-3">
                   <button
                     className="btn btn-primary me-3"
                     onClick={this.handleSubmit}
@@ -90,7 +88,7 @@ class EditPerson extends React.Component {
                   </button>
                   <button className="btn btn-info me-3">
                     <Link
-                      to="/person/all"
+                      to="/persons/all"
                       className="text-decoration-none text-white"
                     >
                       Go back

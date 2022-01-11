@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 class DeletePerson extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount() {}
 
   handleSubmit(e) {
     if (window.confirm("Are you sure to delete this record?")) {
@@ -17,6 +19,11 @@ class DeletePerson extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props;
+    console.log(navigation);
+    const id = navigation.getParam("id");
+    console.log(id);
+
     return (
       <React.Fragment>
         <h4>Delete Person</h4>
@@ -25,8 +32,8 @@ class DeletePerson extends React.Component {
             <div className="offset-md-2 col-md-6">
               <form>
                 <div class="form-group mt-3">
-                  <label for="name">Name</label>
-                  <label for="name" className="ps-5">
+                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name" className="ps-5">
                     Name
                   </label>
                 </div>
@@ -63,7 +70,7 @@ class DeletePerson extends React.Component {
                   </button>
                   <button className="btn btn-info me-3">
                     <Link
-                      to="/person/all"
+                      to="/persons/all"
                       className="text-decoration-none text-white"
                     >
                       Go back

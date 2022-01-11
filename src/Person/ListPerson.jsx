@@ -35,7 +35,7 @@ class ListPerson extends React.Component {
       <div className="mt-5">
         <div className="text-end">
           <button className="btn btn-primary">
-            <Link to="/person/add" className="text-decoration-none text-white fw-bold">Add Person</Link>
+            <Link to="/persons/add" className="text-decoration-none text-white fw-bold">Add Person</Link>
           </button>
         </div>
         <table className="table">
@@ -62,10 +62,10 @@ class ListPerson extends React.Component {
                   <td>{person.hobbies.join(", ")}</td>
                   <td>{person.state}</td>
                   <td>
-                    <Link to={"/person/edit?id=" + person.id}>Edit</Link>
+                    <Link to={"/persons/edit/" + person.id}>Edit</Link>
                   </td>
                   <td>
-                    <Link to={"/person/delete?id=" + person.id}>Delete</Link>
+                    <Link to={"/persons/delete/" + person.id}>Delete</Link>
                   </td>
                 </tr>
               );
